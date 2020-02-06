@@ -1,6 +1,6 @@
 # rtl\_433 fuzzing corpus
 
-This repository is meant as a place to build a fuzzing corpus to be used against the rtl\_433 application (see https://github.com/merbanan/rtl\_433).
+This repository is meant as a place to build a fuzzing corpus to be used against the rtl\_433 application (see https://github.com/merbanan/rtl_433).
 
 ## Quick tips
 
