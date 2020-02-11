@@ -13,15 +13,16 @@ import subprocess
 def main():
     print('Corpus file naming application', file=sys.stderr)
     if len(sys.argv) != 3:
-        print('Usage: {} RTL_BIN_PATH CORPUS_PATH'.format(sys.argv[0]))
+        print('Usage: {} RTL_BIN_PATH CORPUS_PATH'.format(sys.argv[0]), file=sys.stderr)
         return
     rtl_bin = sys.argv[1]
     corpus_path = sys.argv[2]
+    print('Checking if rtl_433 binary is working and correct path is given', file=sys.stderr)
     res = subprocess.run(rtl_bin, capture_output=True)
     if res.returncode == 0 or res.returncode == 1:
-        print('rtl_433 bin ok')
+        print('rtl_433 bin ok', file=sys.stderr)
     else:
-        print('Could not find rtl_433 binary')
+        print('Could not find rtl_433 binary', file=sys.stderr)
         return
   
     counter = 0
@@ -58,7 +59,9 @@ def main():
         if name == filename:
             #print('Skipping', name, ', it already exists')
             continue
-        os.rename(filepath, corpus_path + name) 
+        os.rename(filepath, corpus_path + name)
+        counter += 1
+    print('Renamed {} files'.format(counter), file=sys.stderr)
 
 if __name__ == '__main__':
     main()
