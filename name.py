@@ -18,7 +18,7 @@ def main():
     rtl_bin = sys.argv[1]
     corpus_path = sys.argv[2]
     print('Checking if rtl_433 binary is working and correct path is given', file=sys.stderr)
-    res = subprocess.run(rtl_bin, capture_output=True)
+    res = subprocess.run([rtl_bin, '-V'], capture_output=True)
     if res.returncode == 0 or res.returncode == 1:
         print('rtl_433 bin ok', file=sys.stderr)
     else:
