@@ -37,12 +37,11 @@ def main():
             hash = m.hexdigest()
 
         res = subprocess.run([rtl_bin, '-G', '4', '-F', 'json', '-y', '@'+filepath], capture_output=True)
-        #print(filepath)
         try:
             text = res.stdout.decode('utf-8').rstrip()
         except UnicodeDecodeError as e:
             print(f"ERROR: Exception thrown while decoding text, {filepath}, {res.stdout}: {e}")
-            continue
+            text = ''
         if text == '':
             newname = 'no-output'
         else:
