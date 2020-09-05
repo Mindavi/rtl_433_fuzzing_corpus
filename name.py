@@ -53,7 +53,7 @@ def main():
 
         # replace /, they can't be in a filename
         newname_safe = newname.replace('/', '-')
-        name = '{}-{}'.format(newname_safe, hash[0:8])
+        name = '{}-{}'.format(newname_safe, hash[0:16])
         #print(name)
         # Skip files that have this name already
         if name == filename:
