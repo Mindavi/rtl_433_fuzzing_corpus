@@ -56,7 +56,8 @@ def main():
                 newname = 'json-decode-error'
 
         # replace /, they can't be in a filename
-        newname_safe = newname.replace('/', '-')
+        # replace space, it confuses afl-cmin
+        newname_safe = newname.replace('/', '-').replace(' ', '_')
         name = '{}-{}'.format(newname_safe, hash[0:16])
         #print(name)
         # Skip files that have this name already
